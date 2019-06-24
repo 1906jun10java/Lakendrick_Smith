@@ -1,5 +1,7 @@
 package come.revature.datastructures;
 
+import javax.xml.soap.Node;
+
 public class MyLinkedList<T> {
 	
 	public MyLinkedList() {
@@ -63,7 +65,7 @@ public class MyLinkedList<T> {
 		
 		Node<T> nextNode = currentNode.getNextNode();
 		
-		if(currentNode != null && currentNode.getData().equals(key)) {
+		if(currentNode != null && currentNode.getData() != null && currentNode.getData().equals(key)) {
 			this.head = nextNode;
 			return true;
 		}
@@ -98,4 +100,47 @@ public class MyLinkedList<T> {
 			currentNode = currentNode.getNextNode();
 		}
 	}
+	
+	public void removeDuplicates() {
+		
+		Node<T> currentNode = this.head;
+		Node<T> tempNode;
+		T currentValue = null;
+		
+		
+		
+		
+		if(currentNode != null) {
+			currentValue = currentNode.getData();
+			System.out.println("at beginning of list, initial value = "+currentValue);
+			
+			do {
+				System.out.println("beginning outer loop iteration");
+				// dont need to re-check earlier nodes in the list
+				
+				tempNode = currentNode;
+				
+				while(tempNode != null && currentNode.getNextNode() != null) {
+					
+					T nextValue = tempNode.getNextNode().getData();
+//					System.out.println(
+							);
+				}
+				
+				System.out.println("moving to currentNode to next node");
+				if (currentNode.getNextNode() != null) {
+					System.out.println("no more duplicates of " + currentValue + "left");
+					System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++");
+					this.printList();
+					System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++");
+					currentValue = currentValue.getNextNode.getNextNode().getData();
+					currentNode = currentNode.getNextNode();
+				
+			}while(currentValue != null && currentNode.getNextNode() != null);
+			// exit iteration if current node's value is null or there is no next node
+			// note: a refinement would be to scrub out or skip all nodes with null values
+			}
+		}
+	}
+	
 }
