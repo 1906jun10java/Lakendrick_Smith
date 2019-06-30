@@ -1,7 +1,13 @@
 package Menus;
 import come.revature.beans.*;
-import com.revature.*;
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.LinkedList;
+import java.util.HashSet;
+
+import com.revature.services.CarOffers;
+import com.revature.services.CarOffers.*;
+import java.util.Queue;
 public class main {
 
 	public static void main(String[] args) {
@@ -10,7 +16,7 @@ public class main {
 		 * prompt the welcome menu and ask the user
 		 * for their username and password.
 		 */
-
+		
 		boolean signedIn = true;
 		while(signedIn) {
 		System.out.println("Welcome to the site! Below, enter your username and password.");
@@ -44,6 +50,9 @@ public class main {
 
 		// this will display the employee menu.
 		if (question == answerEmployee ) {
+			
+			boolean switchControl2 = true;
+			while(switchControl2) {
 
 			System.out.println("Welcome to the employee portal. Choose your options below.");
 			System.out.println("---------------------------------------------------------");
@@ -53,13 +62,16 @@ public class main {
 			System.out.println("4. Sign out.");
 
 			// This is used to access the options on the employee menu.
+			
 			int choice = sc.nextInt();
-			boolean switchControl2 = true;
-			while(switchControl2) {
+			
+			
 				switch (choice) {
 
 				case 1:
-
+					System.out.println(" These are the available cars: ");
+					CarOffers.carsOnLot();
+					System.out.println(" ");
 					break;
 
 				case 2:
@@ -80,6 +92,10 @@ public class main {
 		}
 
 		else if (question == answerCustomer) {
+			
+			boolean switchControl1 = true;
+			
+			while (switchControl1) {
 
 			System.out.println("Welcome to CARS'R US. Below are your main menu options.");
 			System.out.println("-----------------------------------------");
@@ -90,16 +106,19 @@ public class main {
 			System.out.println("5. sign out");
 			
 			int choice = sc.nextInt();
-			boolean switchControl1 = true;
 			
-			while (switchControl1) {
+			
+			
 				
 			
 				switch (choice) {
 
 				case 1:
+					System.out.println(" ");
+					CarOffers.carsOnLot();
+					System.out.println(" ");
 
-					break;
+				
 
 				case 2:
 
@@ -127,7 +146,17 @@ public class main {
 		System.out.println(" ");
 	}
 		
-  } 
+  }
+	
+		
+	
+	
+
+}	 
 
 	
-}
+	
+
+
+	
+
