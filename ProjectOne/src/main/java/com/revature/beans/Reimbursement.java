@@ -23,6 +23,14 @@ public class Reimbursement {
 		this.acceptedBy = acceptedBy;
 	}
 
+	public Reimbursement(int int1, int int2, String string, int int3, int int4, int int5) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Reimbursement(int int1, double double1, String string, int int2, int int3, int int4) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getReimbursementID() {
 		return reimbursementID;
 	}

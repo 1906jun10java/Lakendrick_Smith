@@ -20,7 +20,7 @@ public class MonkeeyDAOImpl implements MonkeeyDAO {
 	
 	public List<Monkeey> getAllMonkeeys() throws SQLException {
 		
-		List<Monkeey> listOfMonkeeys = new ArrayList<>();
+		List<Monkeey> listOfMonkeeys = new ArrayList<Monkeey>();
 		Connection conn = cf.getConnection();
 		String sql = "SELECT * FROM MONKEEY";
 		PreparedStatement ps = conn.prepareStatement(sql);
@@ -36,7 +36,7 @@ public class MonkeeyDAOImpl implements MonkeeyDAO {
 		//This method will return a monkeey matching its ID
 	public Monkeey getMonkeey(String username) throws SQLException {
 		Connection conn = cf.getConnection();
-		String sql = "Select * FROM MONKEEY WHERE USERNAME = ? ";
+		String sql = "SELECT * FROM MONKEEY WHERE USERNAME = ? ";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setString(1, username);
 		ResultSet rs = ps.executeQuery();
@@ -57,7 +57,7 @@ return monkeey;
 	public void updateMonkeeys(Monkeey monkeey) throws SQLException {
 		
 		Connection conn = cf.getConnection();
-		String sql ="UPDATE MONKEEY SET USERNAME = ?,PASSWORD = ?, EMAIL = ? WHERE ID = ?";
+		String sql ="UPDATE MONKEEY SET USERNAME = ?,PASSWORD = ?, EMAIL = ? WHERE MONKEEY_ID = ?";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		
 		ps.setString(1,monkeey.getUserName());
@@ -71,7 +71,7 @@ return monkeey;
 
 	public void removeMonkeey(int ID) throws SQLException {
 		Connection conn = cf.getConnection();
-		String sql = "DELETE FROM EMPLOYEE WHERE ID = ?";
+		String sql = "DELETE FROM MONKEEY WHERE MONKEEY_ID = ?";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setInt(1, ID);
 		
@@ -80,7 +80,7 @@ return monkeey;
 	 //This method will add a new monkeey to the database
 	public void addMonkeeys(Monkeey monkeey) throws SQLException {
 		
-		//first we get connection
+		
 		
 		
 		
